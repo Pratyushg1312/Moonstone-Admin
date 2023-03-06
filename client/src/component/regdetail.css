@@ -1,0 +1,22 @@
+.regdetail{
+    display: flex ;
+    width: 100%;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.regdetail h1{
+    margin: 5px;
+    color: #be3535;
+}
+.lists{
+    margin-top: 10px;
+    display: flex;
+   justify-content:center;
+   align-items: center;
+    width: 100%;
+    padding: 8px;
+   
+}
+

@@ -1,0 +1,38 @@
+.header{
+    width:100%;
+    display:flex;
+   align-items:center ;
+   justify-content: space-evenly;
+    height: 80px;
+    
+    border-bottom: 4px solid #061F25;
+}
+.imgntextcon{
+    display: flex;
+    align-items: center;
+   
+}
+.imgntextcon p{
+    color: #061F25;
+    font-weight: bold;
+}
+.imgcon{
+    height:50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #b2b2b2;
+    float: left;
+    margin: 5px;
+}
+.heading h1{
+    color: #061F25;
+    height: 40px;
+}
+
+.btn {
+    background-color: rgb(14, 114, 32);
+    height: 37px;
+    width: 102px;
+    border: 0;
+    border-radius: 22px;
+}

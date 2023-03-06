@@ -1,0 +1,30 @@
+.regstat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3px;
+}
+.box{
+    height: 134px;
+    width: 220px;
+    background-color: #be3535ba;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.tagname{
+    float: left;
+    color: black;
+    font-weight: bold;
+    margin: 10px;
+
+}
+.tagamt{
+    float: right;
+    color: aliceblue;
+    font-weight: bold;
+    
+}
