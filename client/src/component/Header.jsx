@@ -1,6 +1,15 @@
+import axios from 'axios'
 import React from 'react'
 import './header.css'
+
 export const Header = () => {
+
+  const logout = () => {
+      axios.get(`/login/logout`).then((res)=>{
+        window.location.reload();
+      })
+  }
+
   return (
     <div className="header">
 
@@ -11,7 +20,7 @@ export const Header = () => {
         <div className="heading">
             <h1>ADMIN</h1>
         </div>
-        <button className='btn'>LOGOUT</button>
+        <button className='btn' onClick={()=>{logout()}}>LOGOUT</button>
     </div>
   )
 }

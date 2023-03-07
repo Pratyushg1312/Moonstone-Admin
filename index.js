@@ -24,11 +24,8 @@ mongoose.connect(process.env.MDB_CONNECT)
 .then(()=>{console.log('Mongodb connected')});
 
 // set up routes
-app.use("/api", require("./Router/RegistrationRouter"));
-app.use("/cnt", require("./Router/CountRouter"));
-app.use("/auth", require("./Router/AuthRouter"));
-app.use("/onlyforadmin" ,adminauth, require("./Router/AdminRouter"));
-app.use("/adminlogin", require("./Router/Adminauth"));
+app.use("/login", require("./Router/Adminauth"));
+app.use("/admin" ,adminauth, require("./Router/AdminRouter"));
 
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 const path=require("path");

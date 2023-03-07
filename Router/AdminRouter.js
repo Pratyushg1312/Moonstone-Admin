@@ -6,6 +6,16 @@ const Admin = require("../Model/AdminModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+router.get("/allcount", async (req, res) => {
+  try {
+        Count.find().then((cnt) => res.json(cnt))
+        .catch((err) => res.status(400).json("Error: " + err));
+  } catch (err) {
+    console.error(err);
+    res.status(200).send("Error: "+err);
+  }
+});
+
 router.get("/allregistration", async (req, res) => {
     try {
       const token = req.cookies.token;
@@ -30,8 +40,9 @@ router.get("/allregistration", async (req, res) => {
 
 router.get("/paymentcompleted/:id", async (req, res) => {
     const Id= req.params.id;
+    // console.log(Id)
     try {
-        let registrationStatus=await Registration.findOneAndUpdate({_id:Id},{payment_status:"Complete"});
+        let registrationStatus=await Registration.findOneAndUpdate({_id:Id},{payment_status:"Confirm"});
         res.status(200).send(registrationStatus);
         } catch (err) {
         console.error(err);
@@ -41,6 +52,7 @@ router.get("/paymentcompleted/:id", async (req, res) => {
 
 router.get("/paymentfailed/:id", async (req, res) => {
     const Id= req.params.id;
+    // console.log(Id)
     try {
         let registrationStatus=await Registration.findOneAndUpdate({_id:Id},{payment_status:"Failed"});
         res.status(200).send(registrationStatus);
