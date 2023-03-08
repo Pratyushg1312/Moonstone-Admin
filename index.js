@@ -20,7 +20,7 @@ app.use(cors({
 
 // connect to mongoDB
 mongoose.set('strictQuery', false)
-mongoose.connect(process.env.MDB_CONNECT) 
+mongoose.connect("mongodb+srv://moonstone:asdfghjkl@cluster0.atygi5j.mongodb.net/?retryWrites=true&w=majority") 
 .then(()=>{console.log('Mongodb connected')})
 
 // set up routes
