@@ -13,12 +13,18 @@ export const Header = () => {
   return (
     <div className="header">
 
-        <div className="imgntextcon">
+        {/* <div className="imgntextcon">
             <div className="imgcon"></div>
-            <p>admin name</p>
-        </div>
+            <p>Events </p>
+
+            <p>NewAdmin</p>
+        </div> */}
+        <a  href="/">Home</a>
+         <a href='/event'>Events </a>
+        <a href="/createadmin">NewAdmin</a>
+
         <div className="heading">
-            <h1>ADMIN</h1>
+            <h1 >ADMIN</h1>
         </div>
         <button className='btn' onClick={()=>{logout()}}>LOGOUT</button>
     </div>

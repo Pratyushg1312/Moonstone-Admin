@@ -1,0 +1,10 @@
+.addevents{
+    margin: 20px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.addevents input,select{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+}

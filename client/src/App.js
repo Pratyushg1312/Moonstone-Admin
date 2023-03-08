@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import CreateAdmin from './pages/CreateAdmin';
+import Events from './pages/Events';
 
 function App() {
   const [login, setlogin] = useState(false);
@@ -18,6 +20,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path='/' element={login?<Home/>:<Login login={login} setlogin={setlogin}/>}/>
+        <Route  path='/event' element={login?<Events/>:<Login login={login} setlogin={setlogin}/>}/>
+        <Route  path='/createadmin' element={login?<CreateAdmin/>:<Login login={login} setlogin={setlogin}/>}/>
       </Routes>
     </div>
   );
