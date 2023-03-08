@@ -4,11 +4,11 @@ import React from 'react'
 export default function RegSingleField(props) {
     
     const confirm = () => {
-        axios.get(`/admin/paymentcompleted/${props.item._id}`).then((res)=>{alert("Confirm")})
+        axios.get(`/admin/paymentcompleted/${props.item._id}`).then((res)=>{window.location.reload()})
     }
 
     const Failed = () => {
-        axios.get(`/admin/paymentfailed/${props.item._id}`).then((res)=>{alert("Failed")})
+        axios.get(`/admin/paymentfailed/${props.item._id}`).then((res)=>{window.location.reload()})
     }
 
 
