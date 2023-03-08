@@ -21,7 +21,7 @@ app.use(cors({
 // connect to mongoDB
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MDB_CONNECT) 
-.then(()=>{console.log('Mongodb connected')});
+.then(()=>{console.log('Mongodb connected')})
 
 // set up routes
 app.use("/login", require("./Router/Adminauth"));

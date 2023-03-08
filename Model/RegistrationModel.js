@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const registrationSchema = new mongoose.Schema({
   reg_id: {  type: Number,required: true},
   name: { type: String, required: true },
+  auth_name: { type: String, required: false },
   phoneno: { type: String, required: false },
   email: { type: String, required: false },
+  auth_email: { type: String, required: false },
   date_of_birth: { type: String, required: false },
   gender: { type: String, required: false },
   event: { type: String, required: false },
