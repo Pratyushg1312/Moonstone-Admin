@@ -5,7 +5,7 @@ import { Button } from 'bootstrap';
 import axios from 'axios';
 import RegSingleField from './RegSingleField';
 
-export const Regdetail = () => {
+export const Regdetail = (props) => {
   const [Data, setData] = useState([]);
     useEffect(() => {
         axios.get("/admin/allregistration")
@@ -51,14 +51,16 @@ export const Regdetail = () => {
               <th scope="col">UTR</th>
               <th scope="col">Payment_status</th>
               <th scope="col">Date_added</th>
+              {props.Adminpre==="Superadmin"||props.Adminpre==="Accounts"?<>
               <th scope="col">Confirm</th>
-              <th scope="col">payment</th>
+              <th scope="col">Failed</th>
+              </>:<></>}
               {/* <th scope="col">Status</th> */}
             </tr>
           </thead>
           <tbody>
             {Data.map((item)=>{
-              return <RegSingleField item={item} />           
+              return <RegSingleField item={item} Adminpre={props.Adminpre} />           
             })}
           </tbody>
         </Table>

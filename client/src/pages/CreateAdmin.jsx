@@ -35,7 +35,7 @@ const Superadmincreated=()=>{
   if(!SuperAdmin){
     setcontent({
       ...content,
-      "privileges":["SuperAdmin"]
+      "privileges":["Superadmin"]
     })
   }
   else{

@@ -23,7 +23,7 @@ router.get("/allregistration", async (req, res) => {
       const existingAdmin = await Admin.findOne({ _id:verified.admin });
         // console.log(existingAdmin);
       
-      if(existingAdmin.privileges[0]==="Superadmin"){
+      if(existingAdmin.privileges[0]==="Superadmin"||existingAdmin.privileges[0]==="Accounts"){
         Registration.find().then((user) => res.json(user))
         .catch((err) => res.status(400).json("Error: " + err));
       }
