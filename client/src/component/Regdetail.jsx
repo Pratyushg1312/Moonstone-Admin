@@ -41,7 +41,7 @@ export const Regdetail = () => {
               <th scope="col">Auth_Name</th>
               <th scope="col">Name</th>
               <th scope="col">Phoneno</th>
-              <th scope="col">Auth_Email</th>
+              {/* <th scope="col">Auth_Email</th> */}
               <th scope="col">Email</th>
               <th scope="col">DOB</th>
               <th scope="col">Gender</th>

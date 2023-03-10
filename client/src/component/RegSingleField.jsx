@@ -19,8 +19,8 @@ export default function RegSingleField(props) {
 <td>{props.item.auth_name}</td>
 <td>{props.item.name}</td>
 <td>{props.item.phoneno}</td>
-<td>{props.item.auth_email}</td>
-<td>{props.item.email}</td>
+{/* <td>{props.item.auth_email}</td> */}
+<td>{props.item.auth_email} {props.item.email}</td>
 <td>{props.item.date_of_birth}</td>
 <td>{props.item.gender}</td>
 <td>{props.item.event}</td>

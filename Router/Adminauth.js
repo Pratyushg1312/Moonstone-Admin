@@ -51,8 +51,9 @@ router.post("/", async (req, res) => {
       const token = req.cookies.token;
       // console.log(token)
       if (!token) return res.json(false);
-      jwt.verify(token, process.env.JWT_SECRET);
-      res.send(true);
+      let detail=jwt.verify(token, process.env.JWT_SECRET);
+      // console.log(detail.privileges[0]);
+      res.send(detail.privileges[0]);
     } catch (err) {
       res.json(false);
     }

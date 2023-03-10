@@ -7,19 +7,26 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CreateAdmin from './pages/CreateAdmin';
 import Events from './pages/Events';
+import { Header } from './component/Header';
 
 function App() {
   const [login, setlogin] = useState(false);
-
+  const [Adminpre, setAdminpre] = useState("");
+const loginnxt=(res)=>{
+  {res.data!==false?setlogin(true):setlogin(false)}
+  // console.log(res.data)
+  setAdminpre(res.data);
+}
   useEffect(() => {
     axios.get("/login/loggedIn")
-    .then((res)=>{setlogin(res.data)})
+    .then((res)=>{loginnxt(res)})
  }, [])
 
   return (
     <div className="App">
+      {login?<Header Adminpre={Adminpre}/>:<></>}
       <Routes>
-        <Route exact path='/' element={login?<Home/>:<Login login={login} setlogin={setlogin}/>}/>
+        <Route exact path='/' element={login?<Home/>:<Login login={login} setlogin={setlogin} />}/>
         <Route  path='/event' element={login?<Events/>:<Login login={login} setlogin={setlogin}/>}/>
         <Route  path='/createadmin' element={login?<CreateAdmin/>:<Login login={login} setlogin={setlogin}/>}/>
       </Routes>

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import './header.css'
 
-export const Header = () => {
+export const Header = (props) => {
 
   const logout = () => {
       axios.get(`/login/logout`).then((res)=>{
@@ -19,9 +19,14 @@ export const Header = () => {
 
             <p>NewAdmin</p>
         </div> */}
+
+        {props.Adminpre==="Superadmin"?
+        <>
         <a  href="/">Home</a>
          <a href='/event'>Events </a>
         <a href="/createadmin">NewAdmin</a>
+        </>
+        :<></>}
 
         <div className="heading">
             <h1 >ADMIN</h1>

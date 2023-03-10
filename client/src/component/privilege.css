@@ -1,0 +1,11 @@
+.privilege{
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.privilege button{
+    background-color: greenyellow;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+}

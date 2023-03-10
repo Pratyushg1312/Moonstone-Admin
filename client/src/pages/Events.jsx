@@ -14,7 +14,6 @@ export default function Events() {
 
   return (
     <div>
-        <Header/>
         <Addevent/>
         {/* show Events and change its status */}
         <div className="regdetail">
