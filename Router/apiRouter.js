@@ -1,8 +1,10 @@
 const router = require("express").Router();
+const Admin = require("../Model/AdminModel");
 const Registration = require("../Model/RegistrationModel");
 const Count = require("../Model/CountModel");
 const Event = require("../Model/EventModel");
 var nodemailer = require('nodemailer');
+const jwt = require("jsonwebtoken");
 
 const mailtouser=(props)=>{
     var transporter = nodemailer.createTransport({
@@ -42,39 +44,31 @@ Software cell
 
 router.post("/registeruser", async (req, res) => {
     try {
-        const {name,auth_name,auth_email, phoneno, email,date_of_birth, gender,utr,event,college} = req.body;
+        const {name, phoneno, email,date_of_birth, gender,event,college} = req.body;
+        console.log(req.body)
         let utrstatus=[]
-        if(!name||!phoneno||!email||!event||!college||!utr){
+        if(!name||!phoneno||!email||!event||!college){
             res.status(400).json("Error: Invalid Input");
         }
-        // else if(utr==="NA"||utr==="N/A"||utr==="Na"||utr==="na"){
-        //     //nothing to check
-        // }
-        // else{
-        //    utrstatus = await Registration.findOne({utr});            
-        // }
-        // if(utrstatus.length!==0){
-        //     res.status(200).send("Already Present");
-        // }        
         else{
+        const token = req.cookies.token;
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        const existingAdmin = await Admin.findOne({ _id:verified.admin });
         //increase Registration count
         const oldcnt= await Count.find();
         let cntstatus=await Count.findOneAndUpdate({_id:oldcnt[0]._id},{user:oldcnt[0].user,registration:oldcnt[0].registration+1});
         
         let eventstatus = await Event.findOne({event});
-        if(eventstatus.status==="open"){
-            const reg_id=oldcnt[0].registration+1;
-            const newRegistration = new Registration({reg_id,name,auth_name,auth_email, phoneno, email,date_of_birth, gender, event,college,date_added:new Date(),utr,payment_status:"Pending",fees:eventstatus.fees});
-            // console.log("MAIL Send");
-            mailtouser({reg_id,name,email,event});
-            // console.log("User Saved");
-            newRegistration .save()
-                .then(() => res.json(reg_id))
-                .catch((err) => res.status(400).json("Error: " + err));            
-        }
-        else{
-            res.status(200).send("Event Was closed");
-        }
+        
+        const reg_id=oldcnt[0].registration+1;
+        const newRegistration = new Registration({reg_id,name,auth_name:existingAdmin.admin_id,auth_email:existingAdmin.admin_id, phoneno,email,date_of_birth, gender, event,college,date_added:new Date(),utr:"By Admin",payment_status:"Confirm",fees:eventstatus.fees});
+        // console.log("MAIL Send");
+        mailtouser({reg_id,name,email,event});
+        // console.log("User Saved");
+        newRegistration .save()
+            .then(() => res.json(reg_id))
+            .catch((err) => res.status(400).json("Error: " + err));            
+    
         }
     } catch (err) {
         console.error(err);

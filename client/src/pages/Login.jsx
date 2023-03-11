@@ -28,6 +28,10 @@ export default function Login(props) {
         .then((res)=>{
           window.location.reload();
         })
+        .catch(error => {
+          alert("INVALID USER")
+          console.error('There was an error!', error);
+      });
     }
     const entersubmit=(e)=> {
       if (e.keyCode === 13) {

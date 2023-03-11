@@ -15,16 +15,20 @@ export default function Addevent() {
         })
       }
     
+    const eventadded=(value)=>{
+      alert(value);
+      window.location.reload();
+    }
     const submitit=()=>{
         axios.post("/admin/addevent",content)
-        .then((res)=>{alert(res.data)});
+        .then((res)=>{eventadded(res.data)});
     }
 
   return (
     <div className='addevents'>
         <h3>Create EVENT</h3>
          <input type="text"  placeholder="Enter Event Name" name="event" value={content.event} onChange={handleChange} required/>
-         <input type="text"  placeholder="Enter Event Name" name="fees" value={content.fees} onChange={handleChange} required/>
+         <input type="text"  placeholder="Enter Event Fees" name="fees" value={content.fees} onChange={handleChange} required/>
          <select  type="text" name="status" value={content.status} onChange={handleChange} required>
           <option value="open">OPEN</option>
           <option value="closed">CLOSED</option>

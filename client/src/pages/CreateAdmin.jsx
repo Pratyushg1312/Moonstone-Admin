@@ -66,7 +66,7 @@ const Accountcreated=()=>{
     <div>
         <div className='createadmin'>
         <h2>New Admin</h2>
-            <input type="text"  placeholder="Enter Event Name" name="admin_id" value={content.admin_id} onChange={handleChange} required/>
+            <input type="text"  placeholder="Enter Admin Id" name="admin_id" value={content.admin_id} onChange={handleChange} required/>
             <input type="text"  placeholder="Enter Passsword" name="password" value={content.password} onChange={handleChange} required/>
             <h3>Privilege :</h3> 
  

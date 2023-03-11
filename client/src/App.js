@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CreateAdmin from './pages/CreateAdmin';
+import Registration from './pages/Registration';
 import Events from './pages/Events';
 import { Header } from './component/Header';
 
@@ -29,6 +30,7 @@ const loginnxt=(res)=>{
         <Route exact path='/' element={login?<Home Adminpre={Adminpre}/>:<Login login={login} setlogin={setlogin} />}/>
         <Route  path='/event' element={login&&(Adminpre==="Superadmin")?<Events/>:<Login login={login} setlogin={setlogin}/>}/>
         <Route  path='/createadmin' element={login&&(Adminpre==="Superadmin")?<CreateAdmin/>:<Login login={login} setlogin={setlogin}/>}/>
+        <Route  path='/registration' element={login?<Registration/>:<Login login={login} setlogin={setlogin}/>}/>
       </Routes>
     </div>
   );
