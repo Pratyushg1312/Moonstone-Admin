@@ -29,6 +29,11 @@ export default function Login(props) {
           window.location.reload();
         })
     }
+    const entersubmit=(e)=> {
+      if (e.keyCode === 13) {
+        adminlogin();
+      }
+    }
 
   return (
     <>
@@ -132,7 +137,7 @@ export default function Login(props) {
       <input type="text" placeholder="Admin ID" name="admin_id" value={Admin.admin_id} onChange={ handleChange } />
     </div>
     <div className="inputBox">
-      <input type="password" placeholder="password"  value={Admin.password} onChange={ handleChange } name="password" />
+      <input type="password" placeholder="password" onKeyDown={(e) => entersubmit(e)}  value={Admin.password} onChange={ handleChange } name="password" />
     </div>
     <div className="inputBox">
          {/* <button className='btn btn-primary' >Login</button> */}
