@@ -7,6 +7,9 @@ import RegSingleField from './RegSingleField';
 import CompleteFailedfield from './CompleteFailedfield';
 
 export const Regdetail = (props) => {
+  var reg=1;
+  var regp=1;
+  var regf=1;
   const [Data, setData] = useState([]);
     useEffect(() => {
         axios.get("/admin/allregistration")
@@ -38,20 +41,21 @@ export const Regdetail = (props) => {
           <thead>
             <tr>
               <th scope="col">Sr no.</th>
-              <th scope="col">Reg_id</th>
+              <th scope="col">Personal details</th>
+              {/* <th scope="col">Reg_id</th>
               <th scope="col">Auth_Name</th>
               <th scope="col">Name</th>
               <th scope="col">Phoneno</th>
-              {/* <th scope="col">Auth_Email</th> */}
               <th scope="col">Email</th>
               <th scope="col">DOB</th>
               <th scope="col">Gender</th>
               <th scope="col">event</th>
-              <th scope="col">college</th>
-              <th scope="col">Fees</th>
+              <th scope="col">college</th> */}
+              {/* <th scope="col">Fees</th>
               <th scope="col">UTR</th>
-              <th scope="col">Payment_status</th>
-              <th scope="col">Date_added</th>
+              <th scope="col">Payment_status</th>*/}
+              <th scope="col">Payment</th>
+              <th scope="col">Date</th> 
               {props.Adminpre==="Superadmin"||props.Adminpre==="Accounts"?<>
               <th scope="col">Confirm</th>
               <th scope="col">Failed</th>
@@ -61,7 +65,7 @@ export const Regdetail = (props) => {
           </thead>
           <tbody>
             {Data.filter(item => item.payment_status==="Pending").map((item)=>{
-              return <RegSingleField item={item} Adminpre={props.Adminpre} />           
+              return <RegSingleField item={item} Adminpre={props.Adminpre} reg={reg++} />           
             })}
           </tbody>
         </Table>
@@ -74,26 +78,28 @@ export const Regdetail = (props) => {
           <thead>
             <tr>
               <th scope="col">Sr no.</th>
-              <th scope="col">Reg_id</th>
+              {/* <th scope="col">Reg_id</th>
               <th scope="col">Auth_Name</th>
               <th scope="col">Name</th>
               <th scope="col">Phoneno</th>
-              {/* <th scope="col">Auth_Email</th> */}
+             
               <th scope="col">Email</th>
               <th scope="col">DOB</th>
               <th scope="col">Gender</th>
               <th scope="col">event</th>
-              <th scope="col">college</th>
-              <th scope="col">Fees</th>
+              <th scope="col">college</th> */}
+               <th scope="col">Personal details</th>
+              {/* <th scope="col">Fees</th>
               <th scope="col">UTR</th>
-              <th scope="col">Payment_status</th>
-              <th scope="col">Date_added</th>
+              <th scope="col">Payment_status</th> */}
+              <th scope="col">Payment</th>
+              <th scope="col">Date</th> 
               {/* <th scope="col">Status</th> */}
             </tr>
           </thead>
           <tbody>
             {Data.filter(item => item.payment_status==="Confirm").map((item)=>{
-              return <CompleteFailedfield item={item}  />           
+              return <CompleteFailedfield item={item} reg={regp++} />           
             })}
           </tbody>
         </Table>
@@ -106,26 +112,27 @@ export const Regdetail = (props) => {
           <thead>
             <tr>
               <th scope="col">Sr no.</th>
-              <th scope="col">Reg_id</th>
-              <th scope="col">Auth_Name</th>
-              <th scope="col">Name</th>
-              <th scope="col">Phoneno</th>
+              <th scope="col">Personal details</th>
+              {/* <th scope="col">Auth_Name</th> */}
+              {/* <th scope="col">Name</th> */}
+              {/* <th scope="col">Phoneno</th> */}
               {/* <th scope="col">Auth_Email</th> */}
-              <th scope="col">Email</th>
-              <th scope="col">DOB</th>
-              <th scope="col">Gender</th>
-              <th scope="col">event</th>
-              <th scope="col">college</th>
-              <th scope="col">Fees</th>
-              <th scope="col">UTR</th>
+              {/* <th scope="col">Email</th> */}
+              {/* <th scope="col">DOB</th> */}
+              {/* <th scope="col">Gender</th> */}
+              {/* <th scope="col">event</th> */}
+              {/* <th scope="col">college</th> */}
+              <th scope="col">Payment</th>
+              <th scope="col"> Date </th> 
+              {/* <th scope="col">UTR</th>
               <th scope="col">Payment_status</th>
-              <th scope="col">Date_added</th>
+              <th scope="col">Date_added</th> */}
               {/* <th scope="col">Status</th> */}
             </tr>
           </thead>
           <tbody>
             {Data.filter(item => item.payment_status==="Failed").map((item)=>{
-              return <CompleteFailedfield item={item}  />           
+              return <CompleteFailedfield item={item} reg={regf++} />           
             })}
           </tbody>
         </Table>

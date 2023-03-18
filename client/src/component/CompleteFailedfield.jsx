@@ -2,24 +2,31 @@ import React from 'react'
 
 export default function CompleteFailedfield(props) {
     
-
+  const date=Date(props.item.date_added)
   return (
     <tr>
-    <th scope="row">1</th>              
-<td>{props.item.reg_id}</td>
-<td>{props.item.auth_name}</td>
-<td>{props.item.name}</td>
-<td>{props.item.phoneno}</td>
-{/* <td>{props.item.auth_email}</td> */}
-<td>{props.item.auth_email} {props.item.email}</td>
-<td>{props.item.date_of_birth}</td>
-<td>{props.item.gender}</td>
-<td>{props.item.event}</td>
-<td>{props.item.college}</td>
-<td>{props.item.fees}</td>
-<td>{props.item.utr}</td>
-<td>{props.item.payment_status}</td>
-<td>{props.item.date_added}</td>
+    <th scope="row">{props.reg}</th>              
+<td style={{textAlign:"initial"}}>
+  <div> Reg_ID : {props.item.reg_id}</div>
+<div>Mail Name : {props.item.auth_name}</div>
+<div>Name : {props.item.name}</div>
+<div>Phone : {props.item.phoneno}</div>
+<div>Google Mail : {props.item.auth_email}</div>
+ <div>Gmail : {props.item.email}</div>
+<div>Dob : {props.item.date_of_birth}</div>
+<div>Gender : {props.item.gender}</div>
+<div>Event : {props.item.event}</div>
+<div>College : {props.item.college}</div>
+</td>
+<td style={{textAlign:"initial"}}>
+<div>FEES : {props.item.fees} ₹</div>
+<div>UTR : {props.item.utr}</div>
+<div>STATUS : {props.item.payment_status}</div>
+</td>
+<td>
+<div>Date : { date.slice(4, 10)}</div>
+   <div>Time : { date.slice(16, 21)}</div>
+  </td>
 {/* <td><button id='bton' style={{display:"none"}} ></button>
 <label for="bton" style={{color:"yellow" ,cursor:"POINTER"}}>pending</label>
 </td> */}
