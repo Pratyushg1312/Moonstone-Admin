@@ -1,10 +1,13 @@
 .header{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
     width:100%;
     display:flex;
    align-items:center ;
    justify-content: space-evenly;
     height: 80px;
-    
+    flex-wrap: wrap;
     border-bottom: 4px solid #061F25;
 }
 .imgntextcon{
@@ -35,4 +38,5 @@
     width: 102px;
     border: 0;
     border-radius: 22px;
+    margin: 2px;
 }
