@@ -35,7 +35,7 @@ export const Header = (props) => {
         <h1 >ADMIN</h1>
     </div>}
         
-        <a className='btn' href="/registration">Register</a>
+        {/* <a className='btn' href="/registration">Register</a> */}
         
         <button className='btn' onClick={()=>{logout()}}>LOGOUT</button>
     </div>

@@ -7,9 +7,9 @@ export default function RegSingleField(props) {
         axios.get(`/admin/paymentcompleted/${props.item._id}`).then((res)=>{window.location.reload()})
     }
 
-    const Failed = () => {
-        axios.get(`/admin/paymentfailed/${props.item._id}`).then((res)=>{window.location.reload()})
-    }
+    // const Failed = () => {
+    //     axios.get(`/admin/paymentfailed/${props.item._id}`).then((res)=>{window.location.reload()})
+    // }
 
     const date=Date(props.item.date_added)
   return (
@@ -41,10 +41,10 @@ export default function RegSingleField(props) {
     {/* <button id='bton' style={{display:"none"}}  ></button> */}
 <label for="bton"  style={{color:"lightgreen" ,cursor:"POINTER"}} onClick={()=>{confirm()}} >accept</label>
 </td>
-<td>
+{/* <td> */}
     {/* <button id='bton' style={{display:"none"}}  onClick={()=>{Failed()}} ></button> */}
-<label for="bton" style={{color:"red" ,cursor:"POINTER"}} onClick={()=>{Failed()}} >reject</label>
-</td>
+{/* <label for="bton" style={{color:"red" ,cursor:"POINTER"}} onClick={()=>{Failed()}} >reject</label> */}
+{/* </td> */}
 </>:<></>}
 {/* <td><button id='bton' style={{display:"none"}} ></button>
 <label for="bton" style={{color:"yellow" ,cursor:"POINTER"}}>pending</label>

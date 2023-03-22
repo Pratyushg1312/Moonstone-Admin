@@ -34,7 +34,7 @@ export default function Registration() {
       }
   return (
     <div className='reg-form'>
-        <h1>Registration</h1>
+        {/* <h1>Registration</h1>
       <div class="form">
         <input class="input" name="name" value={content.name} placeholder="Full Name" onChange={handleChange} type="text" required/>
         <span class="input-border"></span>
@@ -66,7 +66,7 @@ export default function Registration() {
      </div>
      <button class="btn" onClick={()=>{submitit()}}>
     Register
-</button>
+</button> */}
      
     </div>
   )

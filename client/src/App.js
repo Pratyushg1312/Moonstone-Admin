@@ -30,7 +30,7 @@ const loginnxt=(res)=>{
         <Route exact path='/' element={login?<Home Adminpre={Adminpre}/>:<Login login={login} setlogin={setlogin} />}/>
         <Route  path='/event' element={login&&(Adminpre==="Superadmin")?<Events/>:<Login login={login} setlogin={setlogin}/>}/>
         <Route  path='/createadmin' element={login&&(Adminpre==="Superadmin")?<CreateAdmin/>:<Login login={login} setlogin={setlogin}/>}/>
-        <Route  path='/registration' element={login?<Registration/>:<Login login={login} setlogin={setlogin}/>}/>
+        {/* <Route  path='/registration' element={login?<Registration/>:<Login login={login} setlogin={setlogin}/>}/> */}
       </Routes>
     </div>
   );

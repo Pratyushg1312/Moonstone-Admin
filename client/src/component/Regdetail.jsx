@@ -57,8 +57,8 @@ export const Regdetail = (props) => {
               <th scope="col">Payment</th>
               <th scope="col">Date</th> 
               {props.Adminpre==="Superadmin"||props.Adminpre==="Accounts"?<>
-              <th scope="col">Confirm</th>
-              <th scope="col">Failed</th>
+              <th scope="col">Accept</th>
+              {/* <th scope="col">Failed</th> */}
               </>:<></>}
               {/* <th scope="col">Status</th> */}
             </tr>

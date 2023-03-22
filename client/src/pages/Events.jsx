@@ -25,8 +25,13 @@ export default function Events() {
             <tr>
               <th scope="col">Sr no.</th>
               <th scope="col">Name</th>
+              <th scope="col">Instructions</th>
+              <th scope="col">Event category</th>
+              <th scope="col">max_team_size</th>
+              <th scope="col">min_team_size</th>
               <th scope="col">Fees</th>
               <th scope="col">Status</th>
+              <th scope="col">Date Of Event</th>
             </tr>
           </thead>
           <tbody>

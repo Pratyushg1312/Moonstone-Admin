@@ -17,29 +17,36 @@ export const Registerstats = () => {
     <div className="regstat">
         <div className="box">
             <p className='tagname'>VISITORS</p>
-            <p className='tagamt'>{Count[0].user}</p>
+            <p className='tagamt'>{Count[0].visitor}</p>
         </div>
         <div className="box">
             <p className='tagname'>REGISTRATION</p>
             <p className='tagamt'>{Count[0].registration}</p>
         </div>
-        {/* <div className="box">
-            <p className='tagname'>VISITORS</p>
-            <p className='tagamt'>27000</p>
-        </div>
         <div className="box">
-            <p className='tagname'>VISITORS</p>
-            <p className='tagamt'>27000</p>
+            <p className='tagname'>Cultural Events Registrations</p>
+            <p className='tagamt'>{Count[0].cultural_registration}</p>
         </div>
 
         <div className="box">
-            <p className='tagname'>VISITORS</p>
-            <p className='tagamt'>27000</p>
+            <p className='tagname'>Sports Events Registrations</p>
+            <p className='tagamt'>{Count[0].sports_registration}</p>
         </div>
+
         <div className="box">
-            <p className='tagname'>VISITORS</p>
-            <p className='tagamt'>27000</p>
-        </div> */}
+            <p className='tagname'>Techno Mgmt Events Registrations</p>
+            <p className='tagamt'>{Count[0].techno_registration}</p>
+        </div>
+
+        <div className="box">
+            <p className='tagname'>Nights Events Registrations</p>
+            <p className='tagamt'>{Count[0].nights_registration}</p>
+        </div>
+
+        <div className="box">
+            <p className='tagname'>Cultural Events Registrations</p>
+            <p className='tagamt'>{Count[0].cultural_registration}</p>
+        </div>
 
         {/* <div className="box">
             <p className='tagname'>VISITORS</p>

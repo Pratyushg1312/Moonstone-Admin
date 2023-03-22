@@ -77,11 +77,10 @@ const Accountcreated=()=>{
 
             {SuperAdmin?<></>:<div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="Accounts"  onChange={()=>{Accountcreated()}}/>
-              <label class="form-check-label" for="Accounts">Accounts</label>
+              <label class="form-check-label" for="Accounts">Registration Desk</label>
             </div>}
-
             {SuperAdmin||Accounts?<></>:<Privilege content={content}  setcontent={ setcontent}/>}
-            <button className='btn btn-primary' onClick={()=>{submitit()}}>Add Admin</button>
+            <button className='btn btn-primary' onClick={()=>{submitit()}}>Admin+</button>
          </div>
     </div>
   )

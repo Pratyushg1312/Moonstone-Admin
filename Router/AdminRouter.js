@@ -98,7 +98,7 @@ router.get("/allregistration", async (req, res) => {
         .catch((err) => res.status(400).json("Error: " + err));
       }
       else{
-        Registration.find({ "event" : { $in : existingAdmin.privileges } })
+        Registration.find({ "event_category" : { $in : existingAdmin.privileges } })
         .then((user) => res.json(user))
         .catch((err) => res.status(400).json("Error: " + err));
       }
@@ -131,83 +131,20 @@ router.get("/paymentcompleted/:id", async (req, res) => {
       }
 });
 
-router.get("/paymentfailed/:id", async (req, res) => {
-    const Id= req.params.id;
-    const token = req.cookies.token;
-      const verified = jwt.verify(token, process.env.JWT_SECRET);
-      const existingAdmin = await Admin.findOne({ _id:verified.admin });
-    // console.log(Id)
-    try {
-      if(existingAdmin.privileges[0]==="Superadmin"||existingAdmin.privileges[0]==="Accounts"){
-        let oldreg=await Registration.findOne({_id:Id});
-        var transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-              user: 'info.xtrimcoder@gmail.com',
-              pass: 'xftqqyoquxloqkkl'
-          }
-        });
-        
-        
-        var mailOptions = {
-          from: 'info.xtrimcoder@gmail.com',
-          to:  oldreg.email,
-          subject: `Pass For MOONSTONE | Software Cell Medicaps`,
-          text:
-        `Dear ${oldreg.name},
-Your Registration was be Failed 
-
-Thanks & Regards
-Software cell
-        `,
-        };
-        
-        transporter.sendMail(mailOptions, function (error, info) {
-          if (error) {
-              console.log(error);
-              // console.log(error);
-          } else {
-              console.log('Email sent: ' + info.response);
-              // return res.json('Email sent: ' + info.response);
-          }
-        });
-        
-        let registrationStatus=await Registration.findOneAndUpdate({_id:Id},{payment_status:"Failed"});
-        res.status(200).send(registrationStatus);
-      }
-      else{
-        res.status(200).send("INVALID USER");       
-      } 
-      } catch (err) {
-        console.error(err);
-        res.status(200).send("Error: "+err);
-      }
-});
-
 router.post("/addevent", async (req, res) => {
     try {
-      // const token = req.cookies.token;
-      // const verified = jwt.verify(token, process.env.JWT_SECRET);
-      // const existingAdmin = await Admin.findOne({ _id:verified.admin });
-      //   // console.log(existingAdmin);
-
-      // if(existingAdmin.privileges[0]==="Superadmin"){
         const token = req.cookies.token;
       const verified = jwt.verify(token, process.env.JWT_SECRET);
       const existingAdmin = await Admin.findOne({ _id:verified.admin });
-      if(existingAdmin.privileges[0]==="Superadmin"){
-        const {event,fees,status}=req.body;
-        const newEvent = new Event({event,fees,status});
-        newEvent.save().then(() => res.json("Event Added!"))
-            .catch((err) => res.status(400).json("Error: " + err));  
-      }
-      else{
-        res.status(200).send("INVALID USER");
-      // }
-      // else{
-      //   res.status(400).json("Error: Not Super Admin");
-      // }
-      }
+          if(existingAdmin.privileges[0]==="Superadmin"){
+            const {event,instructions,event_category,max_team_size,min_team_size,fees,status,date_of_event}=req.body;
+            const newEvent = new Event({event,instructions,event_category,max_team_size,min_team_size,fees,status,date_of_event});
+            newEvent.save().then(() => res.json("Event Added!"))
+                .catch((err) => res.status(400).json("Error: " + err));  
+          }
+          else{
+            res.status(200).send("INVALID USER");
+          }
       } catch (err) {
         console.error(err);
         res.status(200).send("Successfully Registered");
